@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    # macOS: the rendering test needs GPUI's headless Metal renderer.
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets --features all-weights -- -D warnings
+      - run: cargo test --features all-weights
+      - run: cargo test --no-default-features
+      - run: cargo test --features gpui-fast --lib --tests
+      - run: cargo build --example gallery --features all-weights
+      - run: cargo publish --dry-run

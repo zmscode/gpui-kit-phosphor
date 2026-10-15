@@ -1,0 +1,66 @@
+[package]
+name = "gpui-kit-phosphor"
+version = "0.1.0"
+description = "Phosphor icons (all six weights) for GPUI Kit."
+keywords = ["gpui", "gpui-kit", "icons", "phosphor", "ui"]
+categories = ["gui"]
+license = "Apache-2.0 AND MIT"
+repository = "https://github.com/zmscode/gpui-kit-phosphor"
+homepage = "https://github.com/zmscode/gpui-kit-phosphor"
+documentation = "https://docs.rs/gpui-kit-phosphor"
+readme = "README.md"
+edition = "2024"
+include = [
+  "/src",
+  "/assets",
+  "/examples",
+  "/tests",
+  "/build.rs",
+  "/README.md",
+  "/LICENSE-APACHE",
+  "/LICENSE-PHOSPHOR",
+]
+
+[dependencies]
+# Must be the exact GPUI snapshot that `gpui-kit-assets` uses, so the
+# `IconNamed`, `AssetSource` and `SharedString` types line up. Bump both
+# together when moving to a new gpui-kit release.
+gpui = { package = "gpui-pre", version = "=0.3.9" }
+gpui-fast = { package = "gpui-fast", version = "0.1.7", optional = true }
+gpui-kit-assets = "0.7.3"
+
+[dev-dependencies]
+gpui-kit = "0.7.3"
+# Headless Metal rendering for tests/rendering.rs. Enabled on GPUI directly:
+# `gpui-kit/test-support` also drags the optional gpui-fast stack into lockfile
+# resolution, whose exact pins conflict with gpui-pre's.
+gpui = { package = "gpui-pre", version = "=0.3.9", features = ["test-support"] }
+gpui-platform = { package = "gpui-pre-platform", version = "=0.3.9", features = ["test-support"] }
+# Same version GPUI uses; only for the `RgbaImage` screenshots in tests/rendering.rs.
+image = { version = "0.25", default-features = false, features = ["png"] }
+
+[features]
+default = ["regular"]
+# Weights embedded by `PhosphorAssets`. `phosphor_assets!` works for every
+# weight regardless of these features.
+thin = []
+light = []
+regular = []
+bold = []
+fill = []
+duotone = []
+all-weights = ["thin", "light", "regular", "bold", "fill", "duotone"]
+# Match `gpui-kit`'s `gpui-fast` feature: enable both or neither.
+gpui-fast = ["dep:gpui-fast", "gpui-kit-assets/gpui-fast"]
+
+[[example]]
+name = "gallery"
+required-features = ["all-weights"]
+
+[[test]]
+name = "rendering"
+harness = false
+required-features = ["all-weights"]
+
+[package.metadata.docs.rs]
+features = ["all-weights"]

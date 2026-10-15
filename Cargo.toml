@@ -57,6 +57,10 @@ gpui-fast = ["dep:gpui-fast", "gpui-kit-assets/gpui-fast"]
 name = "gallery"
 required-features = ["all-weights"]
 
+[[example]]
+name = "readme_images"
+required-features = ["all-weights"]
+
 [[test]]
 name = "rendering"
 harness = false

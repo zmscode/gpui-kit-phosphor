@@ -1,10 +1,30 @@
 # gpui-kit-phosphor
 
+[![CI](https://github.com/zmscode/gpui-kit-phosphor/actions/workflows/ci.yml/badge.svg)](https://github.com/zmscode/gpui-kit-phosphor/actions/workflows/ci.yml) [![Docs](https://docs.rs/gpui-kit-phosphor/badge.svg)](https://docs.rs/gpui-kit-phosphor/) [![Crates.io](https://img.shields.io/crates/v/gpui-kit-phosphor.svg)](https://crates.io/crates/gpui-kit-phosphor) [![License](https://img.shields.io/crates/l/gpui-kit-phosphor.svg)](#license)
+
 [Phosphor](https://phosphoricons.com) icons for [GPUI Kit](https://gpui-kit.com):
 all 1,512 icons in all six weights (thin, light, regular, bold, fill, duotone).
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/zmscode/gpui-kit-phosphor/main/docs/images/weights-dark.png">
+  <img alt="Ten Phosphor icons in each of the six weights" src="https://raw.githubusercontent.com/zmscode/gpui-kit-phosphor/main/docs/images/weights-light.png" width="620">
+</picture>
+
 `PhosphorIcon` implements GPUI Kit's `IconNamed` trait, so it works anywhere
-GPUI Kit takes an icon: `Icon::new(...)`, buttons, menus, and so on.
+GPUI Kit takes an icon: `Icon::new(...)`, buttons, inputs, tags, menus, and so on.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/zmscode/gpui-kit-phosphor/main/docs/images/components-dark.png">
+  <img alt="GPUI Kit buttons, a search input and tags using Phosphor icons" src="https://raw.githubusercontent.com/zmscode/gpui-kit-phosphor/main/docs/images/components-light.png" width="580">
+</picture>
+
+Icons take the surrounding text color, any size, and duotone keeps its
+two-tone look in every color:
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/zmscode/gpui-kit-phosphor/main/docs/images/styling-dark.png">
+  <img alt="A duotone planet at six sizes, and fill hearts and duotone lightning bolts in six colors" src="https://raw.githubusercontent.com/zmscode/gpui-kit-phosphor/main/docs/images/styling-light.png" width="580">
+</picture>
 
 ## Usage
 
@@ -102,6 +122,14 @@ crate's `gpui-fast` feature too.
 
 ```sh
 cargo run --example gallery --features all-weights
+```
+
+The images in this README are rendered by GPUI itself, offscreen, by
+[`examples/readme_images.rs`](examples/readme_images.rs). Regenerate them after
+changing the icons or the showcase:
+
+```sh
+cargo run --example readme_images --features all-weights
 ```
 
 ## Tests

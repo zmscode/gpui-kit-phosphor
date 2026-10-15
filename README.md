@@ -1,6 +1,6 @@
 # gpui-kit-phosphor
 
-[![CI](https://github.com/zmscode/gpui-kit-phosphor/actions/workflows/ci.yml/badge.svg)](https://github.com/zmscode/gpui-kit-phosphor/actions/workflows/ci.yml) [![Docs](https://docs.rs/gpui-kit-phosphor/badge.svg)](https://docs.rs/gpui-kit-phosphor/) [![Crates.io](https://img.shields.io/crates/v/gpui-kit-phosphor.svg)](https://crates.io/crates/gpui-kit-phosphor) [![License](https://img.shields.io/crates/l/gpui-kit-phosphor.svg)](#license)
+[![CI](https://github.com/zmscode/gpui-kit-phosphor/actions/workflows/ci.yml/badge.svg)](https://github.com/zmscode/gpui-kit-phosphor/actions/workflows/ci.yml) [![Docs](https://img.shields.io/docsrs/gpui-kit-phosphor)](https://docs.rs/gpui-kit-phosphor/) [![Crates.io](https://img.shields.io/crates/v/gpui-kit-phosphor)](https://crates.io/crates/gpui-kit-phosphor) [![License](https://img.shields.io/crates/l/gpui-kit-phosphor)](#license)
 
 [Phosphor](https://phosphoricons.com) icons for [GPUI Kit](https://gpui-kit.com):
 all 1,512 icons in all six weights (thin, light, regular, bold, fill, duotone).
